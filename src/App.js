@@ -20,7 +20,7 @@ const App = () => {
       console.log("eachWord:", eachWord)
 
       // NO MODIFICATION NEEDED: this code will look at each word and identify the vowels
-      const vowelsArray = eachWord.split("").filter(vowel => {
+      const vowelsArray = eachWord.toLowerCase().split("").filter(vowel => { // Added .toLowerCase() to include sensitivity for capital vowels
         return (
           vowel === "a" || 
           vowel === "e" || 
@@ -33,7 +33,71 @@ const App = () => {
 
       // ACTION ITEM: your Pig Latin logic goes here!
 
-    
+      // Vowel functionality
+      // - Can type any word that begins with a vowel in the text input (e.g. apple)
+      // - Can hit the submit button
+      // - Can see the words that begin with a vowel translated to Pig Latin and rendered to the page (e.g. appleway)
+
+      // Create logic to identify when words begin with a vowel
+      // Look at the first letter at eachWord[0] and compare to the letter at vowelsArray[0] to determine whether the first letter is a vowel
+      // Use .toLowerCase() to include capital vowels for comparison
+      // If the first letter is a vowel, then concat "way" to the end of eachWord
+
+      // EXAMPLES
+      // "apple"[0] => "a"
+      // "apple"'s vowelsArray[0] => "a"
+
+      // "eat"[0] => "e"
+      // "eat"'s vowelsArray[0] => "e"
+
+      // "apple," => "appleway,"
+
+      if(eachWord[0].toLowerCase() === vowelsArray[0]){
+            eachWord = eachWord.concat("way")
+      }
+
+      // "Qu" functionality
+      // - Can type any word that has a "qu" in the first syllable in the text input (e.g. squeal)
+      // - Can hit the submit button
+      // - Can see the words that have a "qu" in the first syllable translated to Pig Latin and rendered to the page (e.g. ealsquay)
+
+      // Looking for "qu" in the word
+      // If "qu" is in the first syllable, identify where the next vowel starts
+      // Remove first syllable
+      // Concat first syllable to the end of the word
+      // Concat "ay" to the end of the word
+
+      // indexOf("qu") < indexOf(a, e, i, o) and indexOf("qu") > 0
+      // "queen".indexOf("qu") => 0 < "queen".indexOf("e") => 2
+      // "squeal".indexOf("qu") => 1 < "squeal".indexOf("e") => 3
+
+      // y functionality
+      // - Can type any word that has no vowels other than "y" in the text input (e.g. fry)
+      // - Can hit the submit button
+      // - Can see the words that have no vowels other than "y" translated to Pig Latin and rendered to the page (e.g. yfray)
+
+
+      // If the vowelsArray is empty, then there is no a, e, i, o, or u in the word
+      // Look for y in the word
+      // Removing first syllable up to the y
+      // Concat the first syllable to the end of the word
+      // Concat "ay" to the end of the word
+
+      // vowelsArray.length = 0 // No vowels
+      // fry > vowelsArray => []
+      // .indexOf("y") > 0 // Has a "y"
+      // "fry".indexOf("y") => 2
+      // dryly > vowelsArray => []
+      // "dryly".indexOf("y") => 2
+
+      // Look for the vowelsArray to find the index of the first vowel
+      // Removing substring before that index
+      // Concat substring to the end of the word
+      // Concat "ay" to the end of the word
+
+      // - Can type any word that starts with one or more consonants in the text input (e.g. through)
+      // - Can hit the submit button
+      // - Can see the words that start with one or more consonants translated to Pig Latin and rendered to the page (e.g. oughthray)
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
