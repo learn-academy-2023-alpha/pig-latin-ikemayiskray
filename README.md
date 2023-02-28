@@ -103,5 +103,6 @@ Each team will give a brief (3 minute) presentation of their application. Presen
 
 - Full team: show off your application's user interface (UI)
 - First team member: What was your team's approach to solving this problem? Did the initial approach work out in the end?
+    -Our initial logic for the "qu" functionality worked, but we simplified the pseudocode and found a cleaner approach using a better understanding of the basic framework of the app. 
 - Second team member: What was the hardest thing about this project? What is your biggest take away?
 - Third team member (if applicable): How did you manage the workflow in a group of three?
