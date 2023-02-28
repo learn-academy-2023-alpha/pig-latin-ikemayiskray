@@ -70,6 +70,7 @@ const App = () => {
       else if(eachWord.toLowerCase().indexOf("qu") >= 0){
           let vowel = eachWord.toLowerCase().indexOf(vowelsArray[1])
           let syllable = eachWord.substring(0, vowel)
+          console.log("syllable: ", syllable)
           eachWord = eachWord.substring(vowel).concat(syllable, "ay")
       }
 
@@ -78,6 +79,17 @@ const App = () => {
       // - Can hit the submit button
       // - Can see the words that have no vowels other than "y" translated to Pig Latin and rendered to the page (e.g. yfray)
 
+      
+
+      else if(vowelsArray.length === 0) {
+            let yLocation = eachWord.toLowerCase().indexOf("y")
+            console.log("y:", yLocation)
+            if(yLocation >= 0){
+                  let syllable = eachWord.substring(0,yLocation)
+                  console.log("syllable: ", syllable)
+                  eachWord = eachWord.substring(yLocation).concat(syllable, "ay")
+            }
+      }
 
       // If the vowelsArray is empty, then there is no a, e, i, o, or u in the word
       // Look for y in the word
