@@ -72,6 +72,13 @@ Oday ouyay eakspay igpay atinlay? If you are scratching your head at that statem
 - Can hit the submit button
 - Can see the words that have no vowels other than "y" translated to Pig Latin and rendered to the page (e.g. yfray)
 
+// vowelsArray.length = 0 // No vowels
+      // fry > vowelsArray => []
+      // .indexOf("y") > 0 // Has a "y"
+      // "fry".indexOf("y") => 2
+      // dryly > vowelsArray => []
+      // "dryly".indexOf("y") => 2
+
 **Story 4: In order to see English words converted to Pig Latin, as the user of the application, I need to see words that have one or more consonants translated by moving all the consonant to the end and add "ay".**
 
 **Branch:** consonant-functionality
