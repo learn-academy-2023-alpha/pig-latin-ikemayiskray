@@ -61,15 +61,17 @@ const App = () => {
       // - Can hit the submit button
       // - Can see the words that have a "qu" in the first syllable translated to Pig Latin and rendered to the page (e.g. ealsquay)
 
-      // Looking for "qu" in the word
-      // If "qu" is in the first syllable, identify where the next vowel starts
-      // Remove first syllable
-      // Concat first syllable to the end of the word
-      // Concat "ay" to the end of the word
-
-      // indexOf("qu") < indexOf(a, e, i, o) and indexOf("qu") > 0
-      // "queen".indexOf("qu") => 0 < "queen".indexOf("e") => 2
-      // "squeal".indexOf("qu") => 1 < "squeal".indexOf("e") => 3
+      // Creating logic to identify when "qu" is in the first syllable
+      // Conditional if/else to check if "qu" is in the word, then if it is in the word, do logic
+      // If "qu" is in the word, take substring from index 0 to the index before the second vowel
+      // then move that substring to the end of the word
+      // Add "ay" to the end of the word
+      
+      else if(eachWord.toLowerCase().indexOf("qu") >= 0){
+          let vowel = eachWord.toLowerCase().indexOf(vowelsArray[1])
+          let syllable = eachWord.substring(0, vowel)
+          eachWord = eachWord.substring(vowel).concat(syllable, "ay")
+      }
 
       // y functionality
       // - Can type any word that has no vowels other than "y" in the text input (e.g. fry)
