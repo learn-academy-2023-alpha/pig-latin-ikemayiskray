@@ -146,6 +146,9 @@ Oday ouyay eakspay igpay atinlay? If you are scratching your head at that statem
 - As a user, I can see pleasant stylings on the application.
 - As a user, I can input a sentence that includes punctuation.
 - As a user, I can input a sentence that includes lower and upper case words.
+      Updated the code with a conditional statement to compare the first letter of each word to the lowercase version of that letter. When these are different, then a variable is used to track this the word is nearly ready for return.
+      As a final adjustment prior to return, when this Boolean is true, then the code capitalizes only the first letter of each word.
+      Fully capital words and words with capital letters in the middle do not retain the same as the input.
 - As a user, I can see a message if I am not using the application correctly.
 
 ### 👩‍💻 Developer Stretch Challenges
@@ -165,3 +168,8 @@ Each team will give a brief (3 minute) presentation of their application. Presen
     -Our initial logic for the "qu" functionality worked, but we simplified the pseudocode and found a cleaner approach using a better understanding of the basic framework of the app. 
 - Second team member: What was the hardest thing about this project? What is your biggest take away?
 - Third team member (if applicable): How did you manage the workflow in a group of three?
+
+**Developer Notes**
+
+- Success: Time management. Initial planning and initial pseudocode created a foundation for the development of the application. Throughout development, we continued to iterate upon this foundation, refining methodolgy and adding functionality with the time available.
+- Struggle: Developing test cases. As each component of the code was developed, we iteratively tested the functionality to confirm expected behavior. This became a challenge to think about edge cases and reviewing how they were processed by the code. One technique that we discovered rather late in development was making up words that met criteria that we wanted, rather than researching actual English words.
