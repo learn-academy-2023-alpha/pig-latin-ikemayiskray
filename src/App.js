@@ -5,7 +5,7 @@ import butcherPigImage from './assets/butcherPig.jpeg'
 const App = () => {
 
   // ACTION ITEM: to make the development process easier there are some preassigned words in the input field, when you are ready for your full user experience delete the test words passed to useState and pass an empty string
-  const [userInput, setUserInput] = useState("apple through queen squeal fry fluent")
+  const [userInput, setUserInput] = useState("")
   const [inputTranslated, setInputTranslated] = useState("")
 
   // ACTION ITEM: the "myPigLatinCodeHere" function is where you will put your logic to translate the sentence entered by the user into Pig Latin
@@ -33,85 +33,53 @@ const App = () => {
 
       // ACTION ITEM: your Pig Latin logic goes here!
 
-      // Vowel functionality
-      // - Can type any word that begins with a vowel in the text input (e.g. apple)
-      // - Can hit the submit button
-      // - Can see the words that begin with a vowel translated to Pig Latin and rendered to the page (e.g. appleway)
-
-      // Create logic to identify when words begin with a vowel
+      // Section to process words that begin with a vowel
       // Look at the first letter at eachWord[0] and compare to the letter at vowelsArray[0] to determine whether the first letter is a vowel
-      // Use .toLowerCase() to include capital vowels for comparison
       // If the first letter is a vowel, then concat "way" to the end of eachWord
-
-      // EXAMPLES
-      // "apple"[0] => "a"
-      // "apple"'s vowelsArray[0] => "a"
-
-      // "eat"[0] => "e"
-      // "eat"'s vowelsArray[0] => "e"
-
-      // "apple," => "appleway,"
 
       if(eachWord[0].toLowerCase() === vowelsArray[0]){
             eachWord = eachWord.concat("way")
       }
 
-      // "Qu" functionality
-      // - Can type any word that has a "qu" in the first syllable in the text input (e.g. squeal)
-      // - Can hit the submit button
-      // - Can see the words that have a "qu" in the first syllable translated to Pig Latin and rendered to the page (e.g. ealsquay)
-
-      // Creating logic to identify when "qu" is in the first syllable
-      // Conditional if/else to check if "qu" is in the word, then if it is in the word, do logic
-      // If "qu" is in the word, take substring from index 0 to the index before the second vowel
-      // then move that substring to the end of the word
-      // Add "ay" to the end of the word
+      // Section to process if "qu" is in the first syllable
+      // Use conditional statement to confirm if "qu" is in the word
+      // Create a substring for the initial syllable
+      // Move the syllable from the beginning of the word to the end and concat "ay" 
       
       else if(eachWord.toLowerCase().indexOf("qu") >= 0){
-          let vowel = eachWord.toLowerCase().indexOf(vowelsArray[1])
-          let syllable = eachWord.substring(0, vowel)
-          console.log("syllable: ", syllable)
+          let vowel = eachWord.toLowerCase().indexOf(vowelsArray[1])  //Location of the first vowel after the "u"
+          let syllable = eachWord.substring(0, vowel) //Substring for first syllable
+          //console.log("syllable: ", syllable)
           eachWord = eachWord.substring(vowel).concat(syllable, "ay")
       }
 
-      // y functionality
-      // - Can type any word that has no vowels other than "y" in the text input (e.g. fry)
-      // - Can hit the submit button
-      // - Can see the words that have no vowels other than "y" translated to Pig Latin and rendered to the page (e.g. yfray)
-
-      
+      // Section to process words that have y as the only vowel
+      // Use conditional statement to confirm that there are no a, e, i, o, u in the word
+      // Conditional if "y" is in the word
+      // Create a substring for the initial consonants 
+      // Move the consonants from the beginning of the word to the end and concat "ay" 
 
       else if(vowelsArray.length === 0) {
-            let yLocation = eachWord.toLowerCase().indexOf("y")
-            console.log("y:", yLocation)
-            if(yLocation >= 0){
+            let yLocation = eachWord.toLowerCase().indexOf("y") //Index location for "y"
+            //console.log("y:", yLocation)
+            if(yLocation >= 0){ //Confirming there is a "y" in the word
                   let syllable = eachWord.substring(0,yLocation)
                   console.log("syllable: ", syllable)
                   eachWord = eachWord.substring(yLocation).concat(syllable, "ay")
             }
       }
 
-      // If the vowelsArray is empty, then there is no a, e, i, o, or u in the word
-      // Look for y in the word
-      // Removing first syllable up to the y
-      // Concat the first syllable to the end of the word
-      // Concat "ay" to the end of the word
+      // Section to process words that start one or more consonants
+      // Use conditional statement to confirm that the first vowel is not the first letter
+      // Create a substring for the initial consonants 
+      // Move the consonants from the beginning of the word to the end and concat "ay" 
 
-      // vowelsArray.length = 0 // No vowels
-      // fry > vowelsArray => []
-      // .indexOf("y") > 0 // Has a "y"
-      // "fry".indexOf("y") => 2
-      // dryly > vowelsArray => []
-      // "dryly".indexOf("y") => 2
-
-      // Look for the vowelsArray to find the index of the first vowel
-      // Removing substring before that index
-      // Concat substring to the end of the word
-      // Concat "ay" to the end of the word
-
-      // - Can type any word that starts with one or more consonants in the text input (e.g. through)
-      // - Can hit the submit button
-      // - Can see the words that start with one or more consonants translated to Pig Latin and rendered to the page (e.g. oughthray)
+      else if(eachWord.toLowerCase().indexOf(vowelsArray[0]) > 0){
+        let vowel = eachWord.toLowerCase().indexOf(vowelsArray[0])  // Index for first vowel
+        let consonants = eachWord.substring(0, vowel) //substring for initial consonants
+        //console.log("syllable: ", consonants)
+        eachWord = eachWord.substring(vowel).concat(consonants, "ay")
+    }
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
@@ -127,7 +95,7 @@ const App = () => {
 
   // ACTION ITEM: this method restarts the game by setting the original state, when you are ready for your full user experience delete the test words in setUserInput and pass an empty string
   const restartGame = () => {
-    setUserInput("apple through queen squeal fry fluent")
+    setUserInput("")
     setInputTranslated("")
   }
 
@@ -166,7 +134,7 @@ const App = () => {
         </div>
         <p>{inputTranslated}</p>
       </div>
-      <footer>&copy; 2022 | Coded by: Your Names Here!</footer>
+      <footer>&copy; Alpha 2023 | Coded by: Chris and Mike!</footer>
     </div>
   )
 }
