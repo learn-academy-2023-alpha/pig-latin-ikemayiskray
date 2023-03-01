@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
-import butcherPigImage from './assets/baconMan.jpeg'
+import butcherPigImage from './assets/butcherPig.jpeg'
 
 const App = () => {
 
