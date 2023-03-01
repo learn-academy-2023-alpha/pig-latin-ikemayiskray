@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
-import butcherPigImage from './assets/butcherPig.jpeg'
+import butcherPigImage from './assets/baconMan.jpg'
 
 const App = () => {
 
@@ -37,6 +37,11 @@ const App = () => {
       // Look at the first letter at eachWord[0] and compare to the letter at vowelsArray[0] to determine whether the first letter is a vowel
       // If the first letter is a vowel, then concat "way" to the end of eachWord
 
+      // Checks to see if eachWord is capitalized, uses a variable that can allow reconstruction after processing the word
+      if(eachWord[0] !== eachWord[0].toLowerCase()){
+            var capitalLetter = true
+      }
+
       if(eachWord[0].toLowerCase() === vowelsArray[0]){
             eachWord = eachWord.concat("way")
       }
@@ -46,7 +51,7 @@ const App = () => {
       // Create a substring for the initial syllable
       // Move the syllable from the beginning of the word to the end and concat "ay" 
       
-      else if(eachWord.toLowerCase().indexOf("qu") >= 0){
+      else if(eachWord.toLowerCase().indexOf("qu") >= 0 && vowelsArray[0] === "u"){
           let vowel = eachWord.toLowerCase().indexOf(vowelsArray[1])  //Location of the first vowel after the "u"
           let syllable = eachWord.substring(0, vowel) //Substring for first syllable
           //console.log("syllable: ", syllable)
@@ -82,6 +87,9 @@ const App = () => {
     }
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
+      if(capitalLetter){
+            eachWord = eachWord.charAt(0).toUpperCase() + eachWord.slice(1).toLowerCase() // Capitalizes the first and only first letter of the word
+      }
       return eachWord
     })
 
