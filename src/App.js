@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './App.css'
-import butcherPigImage from './assets/butcherPig.jpeg'
 
 const App = () => {
 
@@ -122,23 +121,17 @@ const App = () => {
     <div className="page-container">
       <div className="body-container">
         <h1>Pig Latin Translator</h1>
-        <img
-          src={butcherPigImage}
-          alt="pig with butcher cut names in pig latin"
-          className="butcher-pig-image"
-        />
-
         <div className="input-section">
-          <h4>Enter phrase to be translated:</h4>
-          <input
-            type="text"
-            className="user-input"
-            onChange={handleInput}
-            value={userInput}
-          />
-          <br />
-          <button onClick={setUpPreventDefault}>Submit</button>
-          <button onClick={restartGame}>Clear</button>
+            <h4>Enter phrase to be translated:</h4>
+            <input
+              type="text"
+              className="user-input"
+              onChange={handleInput}
+              value={userInput}
+            />
+            <br />
+            <button onClick={setUpPreventDefault}>Submit</button>
+            <button onClick={restartGame}>Clear</button>
         </div>
         <p>{inputTranslated}</p>
       </div>

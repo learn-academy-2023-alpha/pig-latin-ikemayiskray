@@ -1,3 +1,4 @@
+
 * {
   font-family: 'Josefin Sans', sans-serif;
   text-align: center;
@@ -6,12 +7,11 @@
 /* ---HEADER--- */
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
-.butcher-pig-image {
-  margin: 1rem;
-  width: 14rem;
+h4 {
+  color: black;
 }
 
 /* ---BODY--- */
@@ -23,16 +23,20 @@ button {
 }
 
 .body-container {
-  padding-bottom: 3rem;
+  /* padding-bottom: 6rem; */
 }
 
 .page-container {
   min-height: 100vh;
   position: relative;
+  background-image: url("https://cdn.pixabay.com/photo/2017/10/17/10/41/pig-2860156_1280.png");
+  background-repeat: no-repeat;
+  background-image: cover;
+  background-position: center;
+  background-size: 1200px;
 }
 
 .input-section {
-  background-color: grey;
   border-radius: .5rem;
   color: #fff;
   margin: 1rem;
@@ -52,7 +56,8 @@ footer {
   bottom: 0;
   position: absolute;
   width: 100%;
-  height: 3rem;
+  display: flex;
+  justify-content: end;
 }
 
 @media only screen and (max-width: 650px) {
